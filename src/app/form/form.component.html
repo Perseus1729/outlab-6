@@ -1,0 +1,41 @@
+<form novalidate [formGroup]="form" (ngSubmit)="addform()">
+    <p>NAME:</p>
+    <input type="text" formControlName="name">
+    <div *ngIf="form.get('name').touched && form.get('name').hasError('required')">
+        Name is required
+    </div>
+
+    <p>EMAIL:</p>
+    <input type="text" formControlName="email">
+    <div *ngIf="form.get('email').touched && form.get('email').invalid">
+        <div *ngIf="form.get('email').hasError('required')">
+            Email is required
+        </div>
+        <div *ngIf="form.get('email').hasError('email')">
+            Invalid email
+        </div>
+    </div>
+    <p>FEEDBACK:</p>
+    <p><input type="radio" value="Great" formControlName="feedback">Great</p>
+    <p><input type="radio" value="Okay" formControlName="feedback">Okay</p>
+    <p><input type="radio" value="Not Good" formControlName="feedback">Not Good</p>
+    <div *ngIf="form.get('feedback').touched && form.get('feedback').invalid">
+        Feedback is required
+    </div>
+    <p>COMMENTS:<br>
+    <textarea formControlName="comment"></textarea></p>
+    <p><button type="submit" [disabled]="form.invalid">Submit</button></p>
+</form>
+
+<div class="output">
+<div *ngIf="alert">SUBMISSION SUCCESSFUL
+    <div class="result">
+    <p>NAME: {{thisuser.name}}</p>
+    <p>EMAIL: {{thisuser.email}}</p>
+    <p>FEEDBACK: {{thisuser.feedback}}</p>
+    <p>COMMENT: {{thisuser.comment}}</p>
+    </div>
+</div>
+<div *ngIf="!alert&&default">SUBMISSION UNSUCCESSFUL</div>
+
+</div>

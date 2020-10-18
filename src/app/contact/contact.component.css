@@ -1,0 +1,21 @@
+.contacts{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 50px;
+    background-color: lightgreen;
+    padding-bottom: 30px;
+}
+
+.contacts .left{
+    display: flex;
+    padding-left: 50px;
+    
+    
+}
+
+.contacts .right{
+    display: flex;
+    padding-right: 50px;
+}
